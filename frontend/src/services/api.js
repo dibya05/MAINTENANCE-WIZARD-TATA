@@ -1,14 +1,14 @@
 // Central API service — all backend calls live here.
-// Vite proxy forwards /api/* requests to http://localhost:5000
+// Vite proxy forwards /api/* requests to https://maintenance-wizard-tata.onrender.com
 
-let API_BASE = import.meta.env.VITE_API_URL || '/api';
+let API_BASE = import.meta.env.VITE_API_URL || 'https://maintenance-wizard-tata.onrender.com';
 
 // 1. Remove trailing slash to prevent double-slash errors (e.g., //auth/register)
 if (API_BASE.endsWith('/')) {
   API_BASE = API_BASE.slice(0, -1);
 }
 
-// 2. If the user set a custom backend URL (like http://localhost:5000) 
+// 2. If the user set a custom backend URL (like https://maintenance-wizard-tata.onrender.com) 
 // but forgot to append /api, we append it for them automatically.
 if (API_BASE !== '' && !API_BASE.endsWith('/api')) {
   API_BASE += '/api';
